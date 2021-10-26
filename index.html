@@ -55,7 +55,33 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
   $(document).ready(function(){
-    
+    $('#MAC').on('keyup', function() { 
+    // remove non digits, break it into chunks of 2 and join with a colon
+    this.value = 
+      (this.value.toUpperCase()
+      .replace(/[^\d|A-Z]/g, '')
+      .match(/.{1,2}/g) || [])
+      .join(":")
+    });
+    $('#change').submit(function(e){
+      e.preventDefault();
+      var MAC = $('#MAC').val();
+      var SSID = $('#SSID').val();
+      var content = "<pre class=\"mt-1 mb-0 p-1 bg-dark text-white\">";
+      content += "sed -i 's/netconf.2.hwaddr.status=disabled/netconf.2.hwaddr.status=enabled/g' /tmp/system.cfg<br>";
+      content += "sed -i 's/netconf.2.hwaddr.mac=/netconf.2.hwaddr.mac="+MAC+"/g' /tmp/system.cfg<br>";
+      content += "save<br>";
+      content += "reboot<br>";
+      content += "</pre>";
+      var content2 = "<pre class=\"mt-1 mb-0 p-1 bg-dark text-white\">";
+      content2 += "sed -i 's/netconf.2.hwaddr.status=enabled/netconf.2.hwaddr.status=disabled/g' /tmp/system.cfg<br>";
+      content2 += "sed -i 's/netconf.2.hwaddr.mac="+MAC+"/netconf.2.hwaddr.mac=/g' /tmp/system.cfg<br>";
+      content2 += "save<br>";
+      content2 += "reboot<br>";
+      content2 += "</pre>";
+      $('.content').html(content);
+      $('.content2').html(content2);
+    });
   });
 </script>
 </body>
