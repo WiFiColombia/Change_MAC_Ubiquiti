@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambiar MAC Ubiquiti</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-12">
+        <h3 class="text-center mt-3">Cambiar MAC Ubiquiti</h3>
+        <h5>Requisitos</h5>
+        <ul>
+          <li>Conexión al equipo</li>
+          <li>Cliente SSH (En Windows, use <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank">Putty</a>)</li>
+        </ul>
+        <h5>Procedimiento</h5>
+        <ol>
+          <li>Configurar el equipo normalmente</li>
+          <li>
+            Ingrese la información solicitada en el formulario, luego de click en el botón enviar
+            <form id="change" class="form-inline mt-2 row">
+              <div class="input-group col-sm-10 mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Direccion MAC</div>
+                </div>
+                <input type="text" class="form-control" id="MAC" maxlength="17">
+              </div>
+              <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+              </div>
+            </form>
+          </li>
+          <li>Ingresar por SSH al equipo</li>
+          <li>
+            Ingresar los siguientes comandos (copiar y click derecho en putty).
+            <span class="content">
+
+            </span>
+          </li>
+          <li>
+            Para restablecer los valores por defecto (MAC Original), ingresar los siguientes comandos.
+            <span class="content2">
+
+            </span>
+          </li>
+        </ol>
+       </div>
+    </div>
+  </div>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+  $(document).ready(function(){
+    
+  });
+</script>
+</body>
+</html>
